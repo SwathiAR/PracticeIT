@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	 <bean id="ds" class="oracle.jdbc.pool.OracleConnectionPoolDataSource">		
+		<property name="URL" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="user" value="system" />
+		<property name="password" value="passw0rd" />		
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="ds"></property>
+	</bean>
+	
+	<bean id="daoBean" class="com.hzn.EmployeeDao">
+	  <property name="jdbcTemplate"><ref bean="jdbcTemplate"/></property>	
+	</bean>
+	
+	<bean id="studentBean" class="com.hzn.Student">
+	  <property name="sNumber"><value>2000</value></property>
+	  <property name="name"><value>XYZ Dhage</value></property>
+	  <property name="dept"><value>training</value></property>	
+	  <property name="sample"><ref bean="sampleBean"/></property> 
+	</bean> 
+	
+	<bean id="sampleBean" class="Sample">
+	  <property name="x"><value>100</value></property>
+	  <property name="y"><value>200</value></property>
+	</bean>
+	
+
+</beans>
