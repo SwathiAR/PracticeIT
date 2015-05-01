@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Book store</title>
+</head>
+<body>
+
+ <article>
+  <header>
+    <h1>Welcome to the book store</h1>
+    <h3>Please select the books and submit.</h3>
+    
+  </header>
+  
+</article>
+  
+<form action ="BookPostServlet" method="post">
+Select books <select name="book" multiple = "multiple">
+<option value = "java" >JAVA</option>
+<option value=  ".net"> .NET </option>
+<option value = "oracle" > ORACLE </option>
+<option value = "C++" > C++ </option>
+</select>
+
+<input type="submit" value = "Click to see the total prize"/>
+</form>
+
+
+<footer>
+  <p>Posted by: Horizon</p>
+  <p>Contact information: <a href="mailto:hrzn@gmail.com">hrzn@gmail.com</a>.</p>
+</footer>
+
+</body>
+</html>
